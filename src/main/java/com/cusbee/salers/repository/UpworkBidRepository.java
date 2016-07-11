@@ -1,6 +1,5 @@
 package com.cusbee.salers.repository;
 
-
 import com.cusbee.salers.entity.Saler;
 import com.cusbee.salers.entity.UpworkBid;
 import org.springframework.data.jpa.repository.JpaRepository;

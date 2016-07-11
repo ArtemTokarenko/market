@@ -30,7 +30,11 @@ public class PageContainer {
         this.current = current;
     }
 
-    public int getLastPage(){return  lastPage;}
+    public int getLastPage() {
+        return lastPage;
+    }
 
-    public void setLastPage(int lastPage) {this.lastPage = lastPage;}
+    public void setLastPage(int lastPage) {
+        this.lastPage = lastPage;
+    }
 }

@@ -1,10 +1,8 @@
 package com.cusbee.salers.beans;
 
-
 import com.cusbee.salers.entity.UpworkBid;
 
 import java.util.Date;
-
 
 public class UpworkBidBean {
 
@@ -22,7 +20,7 @@ public class UpworkBidBean {
         bean.setSalerId(bid.getSaler().getId());
         bean.setComment(bid.getComment());
         bean.setDate(bid.getDate());
-//        bean.setUpdatedDate(bid.getUpdatedDate());
+        //        bean.setUpdatedDate(bid.getUpdatedDate());
         bean.setUrl(bid.getUrl());
         bean.setAccount(bid.getAccount());
         return bean;

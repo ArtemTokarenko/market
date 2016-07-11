@@ -1,6 +1,5 @@
 package com.cusbee.salers.service.interfaces;
 
-
 import com.cusbee.salers.beans.SalerBean;
 import com.cusbee.salers.sites.ResponseContainer;
 

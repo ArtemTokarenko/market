@@ -43,11 +43,10 @@ public class SalerServiceImpl implements SalerService {
     @Override
     public ResponseContainer add(String login, String password) {
         ResponseContainer responseContainer = new ResponseContainer<>();
-        if((salerRepository.checkForThePresenceLogin(login))!=null){
+        if ((salerRepository.checkForThePresenceLogin(login)) != null) {
             responseContainer.setMessage("This login is occupied");
             responseContainer.setCode(406);
-        }
-        else{
+        } else {
             Saler saler = new Saler();
             saler.setLogin(login);
             saler.setPassword(password);
@@ -63,7 +62,6 @@ public class SalerServiceImpl implements SalerService {
         }
         return responseContainer;
     }
-
 
     @Override
     public void update(SalerBean salerBean) {

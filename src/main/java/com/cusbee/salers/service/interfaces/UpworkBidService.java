@@ -30,6 +30,4 @@ public interface UpworkBidService {
 
     List<UpworkBidBean> getAllBetweenDate(Date dateFrom, Date dateTo);
 
-
-
 }

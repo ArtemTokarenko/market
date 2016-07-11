@@ -1,7 +1,5 @@
 package com.cusbee.salers.entity;
 
-
-
 import com.cusbee.salers.enums.Role;
 
 import javax.persistence.*;
@@ -39,7 +37,7 @@ public class Saler {
     @Enumerated(value = EnumType.ORDINAL)
     private Role role;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL}, mappedBy = "saler")
+    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, mappedBy = "saler")
     private List<UpworkBid> upworkBidList;
 
     public Integer getId() {
