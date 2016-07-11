@@ -77,6 +77,22 @@ public class UpworkBidServiceImpl implements UpworkBidService {
     }
 
     @Override
+    public List<UpworkBidBean> getAllActive() {
+        List<UpworkBidBean> upworkBidBeanList = new ArrayList<>();
+        List<UpworkBid> upworkBidList = upworkBidRepository.getByActiveTrue();
+        upworkBidList.forEach(u -> upworkBidBeanList.add(UpworkBidBean.toBean(u)));
+        return upworkBidBeanList;
+    }
+
+    @Override
+    public List<UpworkBidBean> getAllInactive() {
+        List<UpworkBidBean> upworkBidBeanList = new ArrayList<>();
+        List<UpworkBid> upworkBidList = upworkBidRepository.getByActiveFalse();
+        upworkBidList.forEach(u -> upworkBidBeanList.add(UpworkBidBean.toBean(u)));
+        return upworkBidBeanList;
+    }
+
+    @Override
     @Transactional
     public UpworkBidBean getByUrl(String url) {
         UpworkBidBean upworkBidBean = UpworkBidBean.toBean(upworkBidRepository.getByUrl(url));

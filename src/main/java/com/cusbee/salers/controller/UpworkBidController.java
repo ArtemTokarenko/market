@@ -36,6 +36,16 @@ public class UpworkBidController {
         return upworkBidService.getAll();
     }
 
+    @RequestMapping(value = "/getAllActive", method = RequestMethod.GET)
+    public List<UpworkBidBean> getAllActive() {
+        return upworkBidService.getAllActive();
+    }
+
+    @RequestMapping(value = "/getAllInactive", method = RequestMethod.GET)
+    public List<UpworkBidBean> getAllInactive() {
+        return upworkBidService.getAllInactive();
+    }
+
     @RequestMapping(value = "/getBySaler", method = RequestMethod.GET)
     public List<UpworkBidBean> getBidsBySaler(@RequestParam(value = "salerId") Integer salerId) {
         return upworkBidService.getBySaler(salerId);

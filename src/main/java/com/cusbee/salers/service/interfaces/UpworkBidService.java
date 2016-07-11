@@ -20,6 +20,10 @@ public interface UpworkBidService {
 
     List<UpworkBidBean> getByComment(String comment);
 
+    List<UpworkBidBean> getAllActive ();
+
+    List<UpworkBidBean> getAllInactive ();
+
     UpworkBidBean getByUrl(String url);
 
     void changeActivity(Integer id);

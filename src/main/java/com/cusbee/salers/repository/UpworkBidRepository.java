@@ -22,6 +22,10 @@ public interface UpworkBidRepository extends JpaRepository<UpworkBid, Integer> {
 
     UpworkBid getByUrl(String url);
 
+    List<UpworkBid> getByActiveTrue();
+
+    List<UpworkBid> getByActiveFalse();
+
     //complicated queries
     @Query(value = "SELECT u FROM UpworkBid u WHERE u.saler = :saler AND u.date BETWEEN :dateFrom AND :dateTo")
     List<UpworkBid> getBySalerAndDateBetween(@Param("saler") Saler saler, @Param("dateFrom") Date dateFrom,
