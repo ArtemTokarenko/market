@@ -31,6 +31,11 @@ public class UpworkBidController {
         upworkBidService.delete(id);
     }
 
+    @RequestMapping(value = "/changeActivity", method = RequestMethod.POST)
+    public void changeActivity(@RequestParam(value = "id") Integer id) {
+        upworkBidService.changeActivity(id);
+    }
+
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public List<UpworkBidBean> getAll() {
         return upworkBidService.getAll();

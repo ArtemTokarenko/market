@@ -77,6 +77,7 @@ public class UpworkBidServiceImpl implements UpworkBidService {
     }
 
     @Override
+    @Transactional
     public List<UpworkBidBean> getAllActive() {
         List<UpworkBidBean> upworkBidBeanList = new ArrayList<>();
         List<UpworkBid> upworkBidList = upworkBidRepository.getByActiveTrue();
@@ -85,6 +86,7 @@ public class UpworkBidServiceImpl implements UpworkBidService {
     }
 
     @Override
+    @Transactional
     public List<UpworkBidBean> getAllInactive() {
         List<UpworkBidBean> upworkBidBeanList = new ArrayList<>();
         List<UpworkBid> upworkBidList = upworkBidRepository.getByActiveFalse();
