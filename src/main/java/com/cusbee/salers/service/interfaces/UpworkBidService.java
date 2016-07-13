@@ -28,10 +28,10 @@ public interface UpworkBidService {
 
     void changeActivity(Integer id);
 
-    List<UpworkBidBean> getBySalerAndDateBetween(Integer salerId, Date dateFrom, Date dateTo);
+    List<UpworkBidBean> getBySalerAndDateBetween(Integer salerId, String dateFrom, String dateTo);
 
-    List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Integer salerId, Date dateFrom, Date dateTo);
+    List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Integer salerId, String dateFrom, String dateTo);
 
-    List<UpworkBidBean> getAllBetweenDate(Date dateFrom, Date dateTo);
+    List<UpworkBidBean> getAllBetweenDate(String dateFrom, String dateTo);
 
 }

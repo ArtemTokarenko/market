@@ -2,7 +2,6 @@ package com.cusbee.salers.beans;
 
 import com.cusbee.salers.entity.Saler;
 import com.cusbee.salers.entity.UpworkBid;
-import com.cusbee.salers.enums.Role;
 
 import java.util.List;
 
@@ -15,7 +14,6 @@ public class SalerBean {
     private String password;
     private String email;
     private String phonenumber;
-    private Role role;
     private List<UpworkBid> upworkBidList;
 
     public static SalerBean toBean(Saler saler) {
@@ -27,7 +25,6 @@ public class SalerBean {
         bean.setPassword(saler.getPassword());
         bean.setEmail(saler.getEmail());
         bean.setPhonenumber(saler.getPhonenumber());
-        bean.setRole(saler.getRole());
         bean.setUpworkBidList(saler.getUpworkBidList());
         return bean;
     }
@@ -86,14 +83,6 @@ public class SalerBean {
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     public List<UpworkBid> getUpworkBidList() {

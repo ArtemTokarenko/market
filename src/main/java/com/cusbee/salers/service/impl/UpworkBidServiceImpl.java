@@ -6,10 +6,13 @@ import com.cusbee.salers.entity.UpworkBid;
 import com.cusbee.salers.repository.SalerRepository;
 import com.cusbee.salers.repository.UpworkBidRepository;
 import com.cusbee.salers.service.interfaces.UpworkBidService;
+import com.cusbee.salers.util.DateTimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,13 +28,13 @@ public class UpworkBidServiceImpl implements UpworkBidService {
 
     @Override
     public void add(UpworkBid upworkBid) {
-        upworkBid.setDate(setCurrentDateTime());
+        upworkBid.setDate(DateTimeUtil.setCurrentDateTime());
         upworkBidRepository.save(upworkBid);
     }
 
     @Override
     public void update(UpworkBid upworkBid) {
-        upworkBid.setUpdatedDate(setCurrentDateTime());
+        upworkBid.setUpdatedDate(DateTimeUtil.setCurrentDateTime());
         upworkBidRepository.save(upworkBid);
     }
 
@@ -44,7 +47,7 @@ public class UpworkBidServiceImpl implements UpworkBidService {
     public void changeActivity(Integer id) {
         UpworkBid bid = upworkBidRepository.getById(id);
         bid.setActive(bid.isActive() ? false : true);
-        bid.setUpdatedDate(setCurrentDateTime());
+        bid.setUpdatedDate(DateTimeUtil.setCurrentDateTime());
         upworkBidRepository.save(bid);
     }
 
@@ -103,35 +106,31 @@ public class UpworkBidServiceImpl implements UpworkBidService {
 
     @Override
     @Transactional
-    public List<UpworkBidBean> getBySalerAndDateBetween(Integer salerId, Date dateFrom, Date dateTo) {
-        Saler saler = salerRepository.getById(salerId);
+    public List<UpworkBidBean> getBySalerAndDateBetween(Integer salerId, String dateFrom, String dateTo) {
         List<UpworkBidBean> upworkBidBeanList = new ArrayList<>();
-        List<UpworkBid> upworkBidList = upworkBidRepository.getBySalerAndDateBetween(saler, dateFrom, dateTo);
+        List<UpworkBid> upworkBidList = upworkBidRepository
+                .getBySalerAndDateBetween(salerId, dateFrom, dateTo);
         upworkBidList.forEach(u -> upworkBidBeanList.add(UpworkBidBean.toBean(u)));
         return upworkBidBeanList;
     }
 
     @Override
     @Transactional
-    public List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Integer salerId, Date dateFrom, Date dateTo) {
-        Saler saler = salerRepository.getById(salerId);
+    public List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Integer salerId, String dateFrom, String dateTo) {
         List<UpworkBidBean> upworkBidBeanList = new ArrayList<>();
-        List<UpworkBid> upworkBidList = upworkBidRepository.getBySalerAndUpdatedDateBetween(saler, dateFrom, dateTo);
+        List<UpworkBid> upworkBidList = upworkBidRepository.getBySalerAndUpdatedDateBetween(salerId, dateFrom, dateTo);
         upworkBidList.forEach(u -> upworkBidBeanList.add(UpworkBidBean.toBean(u)));
         return upworkBidBeanList;
     }
 
     @Override
     @Transactional
-    public List<UpworkBidBean> getAllBetweenDate(Date dateFrom, Date dateTo) {
+    public List<UpworkBidBean> getAllBetweenDate(String dateFrom, String dateTo) {
         List<UpworkBidBean> upworkBidBeanList = new ArrayList<>();
         List<UpworkBid> upworkBidList = upworkBidRepository.getAllBetweenDate(dateFrom, dateTo);
         upworkBidList.forEach(u -> upworkBidBeanList.add(UpworkBidBean.toBean(u)));
         return upworkBidBeanList;
     }
 
-    private Date setCurrentDateTime() {
-        Date date = new Date();
-        return date;
-    }
+
 }

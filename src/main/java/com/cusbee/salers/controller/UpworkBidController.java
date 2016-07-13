@@ -68,19 +68,19 @@ public class UpworkBidController {
 
     @RequestMapping(value = "/getBySalerAndDateBetween", method = RequestMethod.GET)
     public List<UpworkBidBean> getBidsBySalerAndDateBetween(@RequestParam(value = "salerId") Integer salerId,
-            @RequestParam(value = "dateFrom") Date dateFrom, @RequestParam(value = "dateTo") Date dateTo) {
+            @RequestParam(value = "dateFrom") String dateFrom, @RequestParam(value = "dateTo") String dateTo) {
         return upworkBidService.getBySalerAndDateBetween(salerId, dateFrom, dateTo);
     }
 
     @RequestMapping(value = "/getBySalerAndUpdatedDateBetween", method = RequestMethod.GET)
     public List<UpworkBidBean> getBidsBySalerAndUpdatedDateBetween(@RequestParam(value = "salerId") Integer salerId,
-            @RequestParam(value = "dateFrom") Date dateFrom, @RequestParam(value = "dateTo") Date dateTo) {
+            @RequestParam(value = "dateFrom") String dateFrom, @RequestParam(value = "dateTo") String dateTo) {
         return upworkBidService.getBySalerAndUpdatedDateBetween(salerId, dateFrom, dateTo);
     }
 
     @RequestMapping(value = "/getAllBetweenDate", method = RequestMethod.GET)
     public List<UpworkBidBean> getAllBetweenDate(
-            @RequestParam(value = "dateFrom") Date dateFrom, @RequestParam(value = "dateTo") Date dateTo) {
+            @RequestParam(value = "dateFrom") String dateFrom, @RequestParam(value = "dateTo") String dateTo) {
         return upworkBidService.getAllBetweenDate(dateFrom, dateTo);
     }
 }
