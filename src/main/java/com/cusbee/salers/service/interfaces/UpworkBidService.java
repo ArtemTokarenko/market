@@ -3,7 +3,6 @@ package com.cusbee.salers.service.interfaces;
 import com.cusbee.salers.beans.UpworkBidBean;
 import com.cusbee.salers.entity.UpworkBid;
 
-import java.util.Date;
 import java.util.List;
 
 public interface UpworkBidService {
@@ -12,11 +11,11 @@ public interface UpworkBidService {
 
     void update(UpworkBid upworkBid);
 
-    void delete(Integer id);
+    void delete(Long id);
 
     List<UpworkBidBean> getAll();
 
-    List<UpworkBidBean> getBySaler(Integer salerId);
+    List<UpworkBidBean> getBySaler(Long salerId);
 
     List<UpworkBidBean> getByComment(String comment);
 
@@ -26,12 +25,12 @@ public interface UpworkBidService {
 
     UpworkBidBean getByUrl(String url);
 
-    void changeActivity(Integer id);
+    void changeActivity(Long id);
 
-    List<UpworkBidBean> getBySalerAndDateBetween(Integer salerId, Date dateFrom, Date dateTo);
+    List<UpworkBidBean> getBySalerAndDateBetween(Long salerId, String dateFrom, String dateTo);
 
-    List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Integer salerId, Date dateFrom, Date dateTo);
+    List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Long salerId, String dateFrom, String dateTo);
 
-    List<UpworkBidBean> getAllBetweenDate(Date dateFrom, Date dateTo);
+    List<UpworkBidBean> getAllBetweenDate(String dateFrom, String dateTo);
 
 }

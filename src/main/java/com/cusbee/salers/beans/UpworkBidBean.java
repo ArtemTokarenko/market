@@ -6,8 +6,8 @@ import java.util.Date;
 
 public class UpworkBidBean {
 
-    private Integer id;
-    private Integer salerId;
+    private Long id;
+    private Long salerId;
     private String comment;
     private Date date;
     private Date updatedDate;
@@ -26,19 +26,19 @@ public class UpworkBidBean {
         return bean;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getSalerId() {
+    public Long getSalerId() {
         return salerId;
     }
 
-    public void setSalerId(Integer salerId) {
+    public void setSalerId(Long salerId) {
         this.salerId = salerId;
     }
 

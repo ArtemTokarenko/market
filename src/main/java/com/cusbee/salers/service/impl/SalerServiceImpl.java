@@ -2,7 +2,6 @@ package com.cusbee.salers.service.impl;
 
 import com.cusbee.salers.beans.SalerBean;
 import com.cusbee.salers.entity.Saler;
-import com.cusbee.salers.enums.Role;
 import com.cusbee.salers.repository.SalerRepository;
 import com.cusbee.salers.service.interfaces.SalerService;
 import com.cusbee.salers.sites.ResponseContainer;
@@ -50,7 +49,6 @@ public class SalerServiceImpl implements SalerService {
             Saler saler = new Saler();
             saler.setLogin(login);
             saler.setPassword(password);
-            saler.setRole(Role.ROLE_SALER);
             saler.setFirstname(null);
             saler.setLastname(null);
             saler.setEmail(null);
@@ -76,7 +74,7 @@ public class SalerServiceImpl implements SalerService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         salerRepository.delete(id);
     }
 }

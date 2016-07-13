@@ -17,6 +17,6 @@ public interface SalerService {
 
     void update(SalerBean saler);
 
-    void delete(Integer id);
+    void delete(Long id);
 
 }

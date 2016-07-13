@@ -7,37 +7,39 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface UpworkBidRepository extends JpaRepository<UpworkBid, Integer> {
+public interface UpworkBidRepository extends JpaRepository<UpworkBid, Long> {
 
     //simple queries
     List<UpworkBid> getBySaler(Saler saler);
 
-    UpworkBid getById(Integer id);
+    UpworkBid getById(Long id);
 
-    List<UpworkBid> getByComment(String comment);
+    List<UpworkBid> getByCommentLike(String comment);
 
-    UpworkBid getByUrl(String url);
+    UpworkBid getByUrlLike(String url);
 
     List<UpworkBid> getByActiveTrue();
 
     List<UpworkBid> getByActiveFalse();
 
-    //complicated queries
-    @Query(value = "SELECT u FROM UpworkBid u WHERE u.saler = :saler AND u.date BETWEEN :dateFrom AND :dateTo")
-    List<UpworkBid> getBySalerAndDateBetween(@Param("saler") Saler saler, @Param("dateFrom") Date dateFrom,
-            @Param("dateTo") Date dateTo);
+    @Query(value = "SELECT * FROM UPWORKBID WHERE SALER_ID = :salerId AND DATE BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
+    List<UpworkBid> getBySalerAndDateBetween(@Param("salerId") Long salerId,
+            @Param("dateFrom") String dateFrom,
+            @Param("dateTo") String dateTo
+    );
 
-    @Query(value = "SELECT u FROM UpworkBid u WHERE u.saler = :saler AND u.updatedDate BETWEEN :dateFrom AND :dateTo")
-    List<UpworkBid> getBySalerAndUpdatedDateBetween(@Param("saler") Saler saler,
-            @Param("dateFrom") Date dateFrom,
-            @Param("dateTo") Date dateTo);
+    @Query(value = "SELECT * FROM UPWORKBID WHERE SALER_ID = :salerId AND UPDATED_DATE BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
+    List<UpworkBid> getBySalerAndUpdatedDateBetween(@Param("salerId") Long salerId,
+            @Param("dateFrom") String dateFrom,
+            @Param("dateTo") String dateTo
+    );
 
-    @Query(value = "SELECT u FROM UpworkBid u WHERE u.date BETWEEN :dateFrom AND :dateTo")
-    List<UpworkBid> getAllBetweenDate(@Param("dateFrom") Date dateFrom,
-            @Param("dateTo") Date dateTo);
+    @Query(value = "SELECT * FROM UPWORKBID WHERE DATE BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
+    List<UpworkBid> getAllBetweenDate(@Param("dateFrom") String dateFrom,
+            @Param("dateTo") String dateTo
+    );
 
 }

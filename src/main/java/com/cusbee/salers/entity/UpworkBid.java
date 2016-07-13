@@ -10,7 +10,7 @@ public class UpworkBid {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SALER_ID")
@@ -33,14 +33,6 @@ public class UpworkBid {
 
     @Column(name = "ACTIVE")
     private Boolean active = true;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Saler getSaler() {
         return saler;
@@ -96,5 +88,13 @@ public class UpworkBid {
 
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
