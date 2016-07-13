@@ -62,7 +62,7 @@ public class SalerController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseContainer delete(@RequestParam(value = "id", required = true) Integer id) {
+    public ResponseContainer delete(@RequestParam(value = "id", required = true) Long id) {
         ResponseContainer dataContainer = new ResponseContainer<>();
         salerServiceImpl.delete(id);
         dataContainer.setCode(200);

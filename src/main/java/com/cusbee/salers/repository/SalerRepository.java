@@ -7,9 +7,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SalerRepository extends JpaRepository<Saler, Integer> {
+public interface SalerRepository extends JpaRepository<Saler, Long> {
 
-    Saler getById(Integer id);
+    Saler getById(Long id);
 
     Saler getByLogin(String login);
 

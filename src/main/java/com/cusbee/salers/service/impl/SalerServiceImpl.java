@@ -74,7 +74,7 @@ public class SalerServiceImpl implements SalerService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         salerRepository.delete(id);
     }
 }

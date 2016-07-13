@@ -12,11 +12,11 @@ public interface UpworkBidService {
 
     void update(UpworkBid upworkBid);
 
-    void delete(Integer id);
+    void delete(Long id);
 
     List<UpworkBidBean> getAll();
 
-    List<UpworkBidBean> getBySaler(Integer salerId);
+    List<UpworkBidBean> getBySaler(Long salerId);
 
     List<UpworkBidBean> getByComment(String comment);
 
@@ -26,11 +26,11 @@ public interface UpworkBidService {
 
     UpworkBidBean getByUrl(String url);
 
-    void changeActivity(Integer id);
+    void changeActivity(Long id);
 
-    List<UpworkBidBean> getBySalerAndDateBetween(Integer salerId, String dateFrom, String dateTo);
+    List<UpworkBidBean> getBySalerAndDateBetween(Long salerId, String dateFrom, String dateTo);
 
-    List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Integer salerId, String dateFrom, String dateTo);
+    List<UpworkBidBean> getBySalerAndUpdatedDateBetween(Long salerId, String dateFrom, String dateTo);
 
     List<UpworkBidBean> getAllBetweenDate(String dateFrom, String dateTo);
 
