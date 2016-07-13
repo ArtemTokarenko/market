@@ -68,7 +68,7 @@ public class SalerServiceImpl implements SalerService {
         Saler saler;
         saler = salerRepository.findOne(salerBean.getId());
         saler.setFirstname(salerBean.getFirstname());
-        saler.setLastname(saler.getLastname());
+        saler.setLastname(salerBean.getLastname());
         saler.setEmail(salerBean.getEmail());
         saler.setPassword(salerBean.getPassword());
         saler.setPhonenumber(salerBean.getPhonenumber());
